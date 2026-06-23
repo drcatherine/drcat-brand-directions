@@ -1,0 +1,314 @@
+<title>Dr. Catherine — Brand Directions</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Hanken+Grotesk:wght@400;500;600;700&family=Bodoni+Moda:opsz,wght@6..96,400;6..96,500&family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --shell-bg:#1b1916; --shell-panel:#232019; --shell-text:#EFEAE0; --shell-mut:#A39B8B;
+    --shell-line:#39342b; --mono:"SF Mono",ui-monospace,Menlo,monospace;
+    --shell-sans:-apple-system,"Helvetica Neue",system-ui,sans-serif;
+  }
+  *{box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%}
+  body{margin:0;background:var(--shell-bg);color:var(--shell-text);font-family:var(--shell-sans);
+       line-height:1.6;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:1200px;margin:0 auto;padding:0 24px}
+  a{color:inherit}
+
+  /* ---------- shell header ---------- */
+  header.lab{padding:64px 0 28px}
+  .kicker{font-family:var(--mono);font-size:12px;letter-spacing:.18em;text-transform:uppercase;
+          color:var(--shell-mut)}
+  header.lab h1{font-family:Georgia,serif;font-weight:500;font-size:clamp(30px,5vw,52px);
+                line-height:1.08;margin:14px 0 16px;letter-spacing:-.01em}
+  header.lab p{max-width:62ch;color:#D5CEC0;margin:0 0 6px}
+  .how{margin-top:22px;padding:16px 18px;border:1px solid var(--shell-line);border-radius:12px;
+       background:var(--shell-panel);max-width:72ch;font-size:14.5px;color:#D5CEC0}
+  .how b{color:var(--shell-text)}
+
+  /* ---------- palette comparison row ---------- */
+  .prow{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:30px 0 8px}
+  .pcard{border:1px solid var(--shell-line);border-radius:12px;overflow:hidden}
+  .pcard .swz{display:flex;height:54px}
+  .pcard .swz i{flex:1}
+  .pcard .lab{display:flex;justify-content:space-between;padding:10px 12px;font-family:var(--mono);
+              font-size:11px;color:var(--shell-mut)}
+  @media(max-width:780px){.prow{grid-template-columns:1fr}}
+
+  /* ====== DIRECTION PANELS — generic component styles driven by vars ====== */
+  .dir{ margin:30px 0 8px; border-radius:20px; overflow:hidden;
+        box-shadow:0 1px 0 var(--shell-line), 0 24px 60px rgba(0,0,0,.35); }
+  .dir .panel{ background:var(--bg); color:var(--text); font-family:var(--sans); }
+  .dir .tag{ display:flex;flex-wrap:wrap;gap:10px 18px;align-items:baseline;
+             padding:20px 28px;background:var(--shell-panel);color:var(--shell-text);
+             border-bottom:1px solid var(--shell-line) }
+  .dir .tag .n{font-family:var(--mono);font-size:12px;color:var(--shell-mut)}
+  .dir .tag h2{font-family:Georgia,serif;font-weight:500;font-size:22px;margin:0;letter-spacing:.01em}
+  .dir .tag .feel{font-family:var(--mono);font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--shell-mut)}
+  .dir .tag .ref{margin-left:auto;font-size:13px;color:var(--shell-mut)}
+
+  .dir .body{padding:0}
+  /* specimen strip */
+  .spec{display:grid;grid-template-columns:1.1fr .9fr;gap:0;border-bottom:1px solid var(--border)}
+  .spec .type{padding:34px 32px}
+  .spec .ey{font-family:var(--sans);font-size:11px;letter-spacing:.18em;text-transform:uppercase;
+            color:var(--accent-ink);font-weight:700;margin-bottom:14px}
+  .spec .disp{font-family:var(--serif);color:var(--text-heading);line-height:1.04;letter-spacing:-.01em;
+              font-size:clamp(34px,4.4vw,56px);font-weight:var(--serif-w);margin:0 0 16px}
+  .spec .bd{font-family:var(--sans);max-width:46ch;color:var(--text);margin:0 0 4px;font-size:15.5px}
+  .spec .meta-t{font-family:var(--mono);font-size:11.5px;color:var(--text-muted);margin-top:18px;line-height:1.7}
+  /* swatch column */
+  .spec .pal{display:flex;flex-direction:column}
+  .spec .pal i{flex:1;display:flex;align-items:flex-end;padding:10px 14px;min-height:46px}
+  .spec .pal i span{font-family:var(--mono);font-size:11px;opacity:.9}
+
+  /* hero mock */
+  .hero{padding:46px 32px 40px;background:var(--bg)}
+  .hero .ey{font-family:var(--sans);font-size:11px;letter-spacing:.16em;text-transform:uppercase;
+            font-weight:700;color:var(--accent-ink);margin-bottom:16px}
+  .hero h3{font-family:var(--serif);color:var(--text-heading);font-weight:var(--serif-w);
+           font-size:clamp(30px,4.4vw,50px);line-height:1.06;letter-spacing:-.01em;margin:0 0 18px;max-width:16ch}
+  .hero p{font-family:var(--sans);font-size:16px;max-width:48ch;color:var(--text);margin:0 0 26px}
+  .btn{display:inline-flex;align-items:center;gap:10px;font-family:var(--sans);font-weight:600;
+       font-size:15px;border:0;cursor:pointer;padding:14px 26px;border-radius:var(--rbtn);
+       background:var(--signal);color:var(--on);text-decoration:none}
+  .btn.ghost{background:transparent;color:var(--signal);border:1.5px solid var(--signal)}
+  .row{display:flex;gap:12px;flex-wrap:wrap;align-items:center}
+  .pop{display:inline-block;margin-left:14px;font-family:var(--sans);font-size:12.5px;font-weight:700;
+       padding:6px 12px;border-radius:var(--rbtn);background:var(--accent);color:var(--accent-on)}
+
+  /* PDP buybox mock */
+  .buy{display:grid;grid-template-columns:1fr;gap:0;border-top:1px solid var(--border);
+       background:var(--surface)}
+  .buy .inner{padding:30px 32px;display:grid;grid-template-columns:1.3fr 1fr;gap:30px;align-items:center}
+  .buy .prod h4{font-family:var(--serif);color:var(--text-heading);font-size:26px;font-weight:var(--serif-w);margin:0 0 6px}
+  .buy .stars{color:var(--accent-ink);font-size:14px;font-weight:600;margin-bottom:14px;font-family:var(--sans)}
+  .buy .opt{display:flex;gap:10px;margin:14px 0}
+  .buy .opt .o{flex:1;border:1.5px solid var(--border);border-radius:calc(var(--rbtn)/3);
+               padding:12px 14px;font-family:var(--sans);font-size:13.5px;background:var(--bg)}
+  .buy .opt .o.sel{border-color:var(--signal);background:var(--accent-soft)}
+  .buy .opt .o b{display:block;color:var(--text-heading)}
+  .buy .opt .o small{color:var(--text-muted)}
+  .buy .card{background:var(--bg);border:1px solid var(--border);border-radius:12px;padding:22px;text-align:center}
+  .buy .card .price{font-family:var(--serif);color:var(--text-heading);font-size:34px;font-weight:var(--serif-w)}
+  .buy .card small{font-family:var(--sans);color:var(--text-muted);font-size:12.5px;display:block;margin:14px 0 4px}
+  .trust{font-family:var(--sans);font-size:12px;color:var(--text-muted);padding:0 32px 30px;background:var(--surface)}
+  @media(max-width:780px){.spec{grid-template-columns:1fr}.buy .inner{grid-template-columns:1fr}}
+
+  /* read */
+  .read{padding:18px 28px;background:var(--shell-panel);color:#CFC8BA;font-size:13.5px;
+        border-top:1px solid var(--shell-line);display:flex;gap:22px;flex-wrap:wrap}
+  .read .s{flex:1;min-width:200px}
+  .read b{color:var(--shell-text)}
+  .score{font-family:var(--mono);font-size:12px;color:var(--shell-mut)}
+
+  footer{padding:48px 0 80px;color:var(--shell-mut);font-size:13.5px}
+
+  /* ============ the three palettes ============ */
+  .d1{ --bg:#FBF6EF; --surface:#F2EADE; --text:#23231F; --text-heading:#1F3D2F; --text-muted:#6B6256;
+       --signal:#1F3D2F; --on:#FFFFFF; --accent:#CDE08C; --accent-on:#1F3D2F; --accent-ink:#1F3D2F;
+       --accent-soft:#EDF3D8; --border:#E2D9CB; --rbtn:10px;
+       --serif:"Fraunces","Hoefler Text",Georgia,serif; --serif-w:500;
+       --sans:"Hanken Grotesk","Avenir Next",system-ui,sans-serif; }
+  .d2{ --bg:#F6F3EE; --surface:#ECE7DF; --text:#2E2920; --text-heading:#2E2920; --text-muted:#938B7E;
+       --signal:#5E574E; --on:#FFFFFF; --accent:#ECE7DF; --accent-on:#2E2920; --accent-ink:#8A6B72;
+       --accent-soft:#ECE7DF; --border:#DBD3C7; --rbtn:999px;
+       --serif:"Bodoni Moda","Didot",Georgia,serif; --serif-w:400;
+       --sans:"Inter","Helvetica Neue",system-ui,sans-serif; }
+  .d3{ --bg:#FAF8F4; --surface:#F1EFE9; --text:#16151A; --text-heading:#16151A; --text-muted:#6A655C;
+       --signal:#6E2233; --on:#FFFFFF; --accent:#6E2233; --accent-on:#FFFFFF; --accent-ink:#6E2233;
+       --accent-soft:#F0E2E4; --border:#E3DFD6; --rbtn:999px;
+       --serif:"Cormorant Garamond","Bodoni 72",Georgia,serif; --serif-w:400;
+       --sans:"Inter","Helvetica Neue",system-ui,sans-serif; }
+</style>
+
+<div class="wrap">
+  <header class="lab">
+    <div class="kicker">Design exploration · Phase 4 · 2026-06-23</div>
+    <h1>Three brand directions for Dr.&nbsp;Catherine</h1>
+    <p>Each is a complete candidate — palette, typography, button language, hero and a product buy-box —
+       built from the sites you sent. Same content across all three, so you're judging the <em>treatment</em>,
+       not the words. All three keep the brand stance: pro-aging, evidence-based, the customer as the heroine.</p>
+    <div class="how">
+      <b>How to read this:</b> skim the three palette strips, then scroll each direction's hero and buy-box.
+      Tell me which one you'd <b>walk toward</b> (and what you'd change). Typefaces shown are free
+      system stand-ins for the named premium targets — we finalize the exact face once you pick a direction.
+    </div>
+
+    <div class="prow">
+      <div class="pcard"><div class="swz" style="background:#FBF6EF">
+        <i style="background:#FBF6EF"></i><i style="background:#F2EADE"></i><i style="background:#1F3D2F"></i><i style="background:#CDE08C"></i></div>
+        <div class="lab"><span>01 · Garden Atelier</span><span>cream · green · pop</span></div></div>
+      <div class="pcard"><div class="swz">
+        <i style="background:#F6F3EE"></i><i style="background:#ECE7DF"></i><i style="background:#5E574E"></i><i style="background:#2E2920"></i></div>
+        <div class="lab"><span>02 · Quiet Luxe</span><span>greige monochrome</span></div></div>
+      <div class="pcard"><div class="swz">
+        <i style="background:#FAF8F4"></i><i style="background:#F1EFE9"></i><i style="background:#16151A"></i><i style="background:#6E2233"></i></div>
+        <div class="lab"><span>03 · Modern Apothecary</span><span>warm-white · ink · oxblood</span></div></div>
+    </div>
+  </header>
+
+  <!-- ============ DIRECTION 1 ============ -->
+  <section class="dir d1">
+    <div class="tag">
+      <span class="n">01</span><h2>Garden Atelier</h2>
+      <span class="feel">warm · botanical · expert · alive</span>
+      <span class="ref">← barefaced.com (your favorite) + yinova warmth</span>
+    </div>
+    <div class="panel"><div class="body">
+      <div class="spec">
+        <div class="type">
+          <div class="ey">The type system</div>
+          <p class="disp">Aa — Hoefler / Newsreader</p>
+          <p class="bd">Warm editorial serif headlines over a humanist sans. The deep botanical green
+             does the heavy lifting; a single soft-chartreuse pop is the one bit of fun — your barefaced
+             neon, grown up.</p>
+          <div class="meta-t">DISPLAY · Newsreader / Fraunces (target)<br>BODY · Hanken Grotesk / humanist sans<br>BUTTONS · soft-rect 10px, green fill</div>
+        </div>
+        <div class="pal">
+          <i style="background:#FBF6EF;color:#23231F"><span>#FBF6EF · canvas</span></i>
+          <i style="background:#1F3D2F;color:#fff"><span>#1F3D2F · botanical green / CTA</span></i>
+          <i style="background:#CDE08C;color:#1F3D2F"><span>#CDE08C · the pop</span></i>
+          <i style="background:#6B6256;color:#fff"><span>#6B6256 · muted</span></i>
+        </div>
+      </div>
+      <div class="hero">
+        <div class="ey">Perimenopause support · doctor-formulated</div>
+        <h3>Midlife isn't a decline. It's a status upgrade.</h3>
+        <p>A classical Chinese formula, modernized — for women who have no intention of disappearing at 50.</p>
+        <div class="row"><a class="btn">Shop the formula</a><a class="btn ghost">Read the science</a>
+          <span class="pop">New · small-batch</span></div>
+      </div>
+      <div class="buy"><div class="inner">
+        <div class="prod">
+          <h4>Mother Daughter Chill</h4>
+          <div class="stars">★★★★★ &nbsp;4.9 · 212 reviews</div>
+          <div class="opt">
+            <div class="o sel"><b>Subscribe &amp; Save 20%</b><small>$40 / 30 days · cancel anytime</small></div>
+            <div class="o"><b>One-time</b><small>$50</small></div>
+          </div>
+          <a class="btn" style="width:100%;justify-content:center">Add to cart · $40</a>
+        </div>
+        <div class="card"><div class="price">$40</div><small>30-day supply · free shipping over $50</small>
+          <a class="btn ghost" style="width:100%;justify-content:center;margin-top:8px">How it works</a></div>
+      </div>
+      <div class="trust">Doctor-formulated · 20 years in practice · structure &amp; function support, no disease claims</div>
+      </div>
+    </div></div>
+    <div class="read">
+      <div class="s"><b>Strength.</b> Closest to what you already love; the green reads credible-but-warm and the pop gives it life without going loud. Best ecommerce-native feel of the three.</div>
+      <div class="s"><b>Risk.</b> Green is a real commitment — it pulls away from the oxblood bottle. The pop must stay disciplined (accent budget) or it tips youthful.</div>
+      <div class="s score">critic (prelim): commerce 9 · warmth 9 · distinctiveness 7</div>
+    </div>
+  </section>
+
+  <!-- ============ DIRECTION 2 ============ -->
+  <section class="dir d2">
+    <div class="tag">
+      <span class="n">02</span><h2>Quiet Luxe</h2>
+      <span class="feel">minimal · luxe · editorial · spacious</span>
+      <span class="ref">← rhodeskin.com</span>
+    </div>
+    <div class="panel"><div class="body">
+      <div class="spec">
+        <div class="type">
+          <div class="ey">The type system</div>
+          <p class="disp">Aa — Didot / Canela</p>
+          <p class="bd">Near-monochrome warm greige, almost no color, and oversized high-contrast type
+             carrying the whole personality. Maximum space, maximum restraint — the fashion-house read.</p>
+          <div class="meta-t">DISPLAY · Canela / Bodoni (target) — oversized<br>BODY · Söhne / clean grotesque<br>BUTTONS · full pill, greige fill</div>
+        </div>
+        <div class="pal">
+          <i style="background:#F6F3EE;color:#2E2920"><span>#F6F3EE · canvas</span></i>
+          <i style="background:#5E574E;color:#fff"><span>#5E574E · greige / CTA</span></i>
+          <i style="background:#2E2920;color:#fff"><span>#2E2920 · espresso</span></i>
+          <i style="background:#8A6B72;color:#fff"><span>#8A6B72 · mauve whisper</span></i>
+        </div>
+      </div>
+      <div class="hero">
+        <div class="ey">Perimenopause support · doctor-formulated</div>
+        <h3>Midlife isn't a decline. It's a status upgrade.</h3>
+        <p>A classical Chinese formula, modernized — for women who have no intention of disappearing at 50.</p>
+        <div class="row"><a class="btn">Shop the formula</a><a class="btn ghost">Read the science</a></div>
+      </div>
+      <div class="buy"><div class="inner">
+        <div class="prod">
+          <h4>Mother Daughter Chill</h4>
+          <div class="stars">★★★★★ &nbsp;4.9 · 212 reviews</div>
+          <div class="opt">
+            <div class="o sel"><b>Subscribe &amp; Save 20%</b><small>$40 / 30 days · cancel anytime</small></div>
+            <div class="o"><b>One-time</b><small>$50</small></div>
+          </div>
+          <a class="btn" style="width:100%;justify-content:center">Add to cart · $40</a>
+        </div>
+        <div class="card"><div class="price">$40</div><small>30-day supply · free shipping over $50</small>
+          <a class="btn ghost" style="width:100%;justify-content:center;margin-top:8px">How it works</a></div>
+      </div>
+      <div class="trust">Doctor-formulated · 20 years in practice · structure &amp; function support, no disease claims</div>
+      </div>
+    </div></div>
+    <div class="read">
+      <div class="s"><b>Strength.</b> The most timeless and premium; ages slowly, reads luxury, lets photography and the bottle carry all the color. Type as the hero.</div>
+      <div class="s"><b>Risk.</b> Restraint this severe can feel cool/distant for a warm wellness brand, and under-converts if the commerce isn't impeccably structured. Needs great photography to live.</div>
+      <div class="s score">critic (prelim): elegance 9 · distinctiveness 8 · commerce-warmth 6</div>
+    </div>
+  </section>
+
+  <!-- ============ DIRECTION 3 ============ -->
+  <section class="dir d3">
+    <div class="tag">
+      <span class="n">03</span><h2>Modern Apothecary</h2>
+      <span class="feel">clean · premium · architectural · credible</span>
+      <span class="ref">← iotabody.com + the oxblood bottle made hero</span>
+    </div>
+    <div class="panel"><div class="body">
+      <div class="spec">
+        <div class="type">
+          <div class="ey">The type system</div>
+          <p class="disp">Aa — Galliard / Caslon</p>
+          <p class="bd">Clean and structured like iota, but warmed and de-clinicalized — and the brand's
+             heritage <em>oxblood</em> becomes the real accent, tying every page to the bottle itself.
+             High-contrast classical serif + a neutral grotesque.</p>
+          <div class="meta-t">DISPLAY · ITC Galliard / Caslon (target)<br>BODY · Neue Haas Unica / Mabry<br>BUTTONS · pill 25px, oxblood or ink</div>
+        </div>
+        <div class="pal">
+          <i style="background:#FAF8F4;color:#16151A"><span>#FAF8F4 · canvas</span></i>
+          <i style="background:#16151A;color:#fff"><span>#16151A · ink</span></i>
+          <i style="background:#6E2233;color:#fff"><span>#6E2233 · oxblood (heritage → accent)</span></i>
+          <i style="background:#6A655C;color:#fff"><span>#6A655C · muted</span></i>
+        </div>
+      </div>
+      <div class="hero">
+        <div class="ey">Perimenopause support · doctor-formulated</div>
+        <h3>Midlife isn't a decline. It's a status upgrade.</h3>
+        <p>A classical Chinese formula, modernized — for women who have no intention of disappearing at 50.</p>
+        <div class="row"><a class="btn">Shop the formula</a><a class="btn ghost">Read the science</a></div>
+      </div>
+      <div class="buy"><div class="inner">
+        <div class="prod">
+          <h4>Mother Daughter Chill</h4>
+          <div class="stars">★★★★★ &nbsp;4.9 · 212 reviews</div>
+          <div class="opt">
+            <div class="o sel"><b>Subscribe &amp; Save 20%</b><small>$40 / 30 days · cancel anytime</small></div>
+            <div class="o"><b>One-time</b><small>$50</small></div>
+          </div>
+          <a class="btn" style="width:100%;justify-content:center">Add to cart · $40</a>
+        </div>
+        <div class="card"><div class="price">$40</div><small>30-day supply · free shipping over $50</small>
+          <a class="btn ghost" style="width:100%;justify-content:center;margin-top:8px">How it works</a></div>
+      </div>
+      <div class="trust">Doctor-formulated · 20 years in practice · structure &amp; function support, no disease claims</div>
+      </div>
+    </div></div>
+    <div class="read">
+      <div class="s"><b>Strength.</b> Premium and credible without going cold; the oxblood accent unifies site + packaging into one brand world. Strong ecommerce bones from iota.</div>
+      <div class="s"><b>Risk.</b> Oxblood-as-UI is a richer, more "heritage" read than the others — gorgeous but less current/fresh than barefaced. Serif must be high-quality to avoid feeling dated.</div>
+      <div class="s score">critic (prelim): credibility 9 · brand-cohesion 9 · freshness 7</div>
+    </div>
+  </section>
+
+  <footer class="wrap" style="padding-left:0;padding-right:0">
+    Stand-in faces render on macOS; premium targets (Newsreader/Fraunces, Canela/Bodoni, ITC Galliard)
+    finalized after you pick. Next: you narrow → I build a full PDP with the real face → lock into the
+    system → build the site. — design-system · dr-catherine-web
+  </footer>
+</div>
