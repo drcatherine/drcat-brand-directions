@@ -8,11 +8,12 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Hanken+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
+  
   :root{
-    --bg:#FBF6EF; --surface:#F2EADE; --white:#FFFFFF;
-    --text:#23231F; --heading:#1F3D2F; --muted:#6B6256;
-    --signal:#1F3D2F; --signal-h:#14241B; --on:#FFFFFF;
-    --pop:#CDE08C; --pop-soft:#EDF3D8; --border:#E2D9CB;
+    --bg:#F6E9DF; --surface:#EFDCCD; --white:#FFFFFF;
+    --text:#0E0E0C; --heading:#0E0E0C; --muted:#766A5E;
+    --signal:#0E0E0C; --signal-h:#6D6662; --on:#FFFFFF;
+    --pop:#E9C9B6; --pop-soft:#F4E4D8; --border:#E2D0C0;
     --serif:"Fraunces",Georgia,serif;
     --sans:"Hanken Grotesk",-apple-system,system-ui,sans-serif;
     --rbtn:10px; --max:1140px; --ease:cubic-bezier(.22,.61,.36,1);
@@ -33,7 +34,7 @@
   .btn:hover{background:var(--signal-h)}
   .btn:focus-visible{outline:3px solid var(--pop);outline-offset:2px}
   .btn.ghost{background:transparent;color:var(--signal);border:1.5px solid var(--signal)}
-  .btn.ghost:hover{background:rgba(31,61,47,.06)}
+  .btn.ghost:hover{background:rgba(109,102,98,.10);border-color:#6D6662;color:#6D6662}
   .pop{display:inline-block;font-family:var(--sans);font-size:12.5px;font-weight:700;
        padding:6px 13px;border-radius:999px;background:var(--pop);color:var(--heading)}
   .row{display:flex;gap:14px;flex-wrap:wrap;align-items:center}
@@ -56,7 +57,7 @@
   .hero p{font-size:16px;max-width:46ch;color:var(--text);margin:0 0 20px}
   .hero .art{order:-1;height:clamp(210px,36vh,290px);border-radius:16px;border:1px solid var(--border);
        background:radial-gradient(120% 80% at 70% 20%,var(--pop-soft),transparent 60%),
-                  linear-gradient(160deg,#E9F0D6,#F2EADE 55%,#EFE3D2);
+                  linear-gradient(160deg,#EDD7C8,#F2EADE 55%,#F0E1D4);
        position:relative;overflow:hidden;display:flex;align-items:flex-end;padding:16px}
   .hero .art .chip{background:var(--white);border:1px solid var(--border);border-radius:12px;
        padding:11px 14px;font-size:12.5px;color:var(--muted);max-width:80%}
@@ -72,10 +73,10 @@
   }
 
   /* authority strip */
-  .auth{background:var(--heading);color:#EAF0E2}
+  .auth{background:var(--heading);color:#F2E6DB}
   .auth .wrap{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;padding:34px 28px}
   .auth .stat .n{font-family:var(--serif);font-size:34px;color:#fff;line-height:1}
-  .auth .stat .l{font-size:12.5px;letter-spacing:.06em;color:#BFCBB2;margin-top:6px}
+  .auth .stat .l{font-size:12.5px;letter-spacing:.06em;color:#CDBFB0;margin-top:6px}
   @media(max-width:720px){.auth .wrap{grid-template-columns:repeat(2,1fr);gap:26px}}
 
   /* section */
@@ -94,9 +95,9 @@
   .spec .lab{font-family:var(--sans);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
   .spec .axis{display:flex;flex-wrap:wrap;gap:28px;align-items:baseline;margin-top:14px}
   .spec .axis div{font-family:var(--serif);color:var(--heading);font-size:clamp(38px,6vw,68px);line-height:1}
-  .spec .e1{font-variation-settings:"EXPO" -80}
-  .spec .e2{font-variation-settings:"EXPO" 0}
-  .spec .e3{font-variation-settings:"EXPO" 80}
+  .spec .e1{}
+  .spec .e2{}
+  .spec .e3{}
   .spec small{font-family:var(--sans);font-size:12px;color:var(--muted);display:block;margin-top:2px;letter-spacing:0;text-transform:none}
 
   /* testimonial */
@@ -107,7 +108,7 @@
   /* buy band */
   .buy{background:var(--white);border:1px solid var(--border);border-radius:20px;overflow:hidden;
        display:grid;grid-template-columns:1fr 1fr}
-  .buy .img{background:radial-gradient(110% 90% at 30% 20%,var(--pop-soft),#EFE3D2);min-height:340px;
+  .buy .img{background:radial-gradient(110% 90% at 30% 20%,var(--pop-soft),#F0E1D4);min-height:340px;
        display:flex;align-items:center;justify-content:center}
   .buy .img .bottle{font-family:var(--serif);color:var(--heading);font-size:26px;opacity:.5}
   .buy .info{padding:38px}
@@ -121,11 +122,11 @@
   .buy .trust{font-size:12px;color:var(--muted);margin-top:14px}
   @media(max-width:780px){.buy{grid-template-columns:1fr}}
 
-  footer{background:var(--heading);color:#CFD9C4;margin-top:10px}
+  footer{background:var(--heading);color:#D8CABB;margin-top:10px}
   footer .wrap{padding:46px 28px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:20px}
   footer .brand{color:#fff}
-  footer a{color:#CFD9C4;text-decoration:none;font-size:14px;display:block;margin:6px 0}
-  .note{background:#14241B;color:#9FB295;font-size:12px;text-align:center;padding:10px}
+  footer a{color:#D8CABB;text-decoration:none;font-size:14px;display:block;margin:6px 0}
+  .note{background:#14241B;color:#B8A998;font-size:12px;text-align:center;padding:10px}
   /* sticky mobile CTA — Nik Sharma non-negotiable for ecommerce */
   .smcta{position:fixed;left:0;right:0;bottom:0;z-index:40;display:none;gap:12px;align-items:center;
          background:var(--white);border-top:1px solid var(--border);padding:10px 18px;
@@ -138,7 +139,7 @@
 </style>
 </head>
 <body>
-  <div class="note">Public preview · Garden Atelier · display font = <b>Fraunces</b> (free stand-in for <b>Exposure</b>, licensed for production)</div>
+  <div class="note">Dr. Catherine · Blush-Forward (locked) · web preview uses Fraunces (licensed Exposure ships on drcatherine.com)</div>
   <nav><div class="wrap">
     <a href="#" class="brand" aria-label="Dr. Catherine — home"><img src="assets/logos/dr-catherine-wordmark.svg" alt="Dr. Catherine"></a>
     <div class="links"><a href="#">Shop</a><a href="#">The Method</a><a href="#">Journal</a><a href="#">About</a></div>
@@ -207,7 +208,7 @@
 
   <footer><div class="wrap">
     <div><img class="flogo" src="assets/logos/Dr-Catherine-White.png" alt="Dr. Catherine">
-      <p style="max-width:34ch;color:#AEBBA1;font-size:13.5px;margin-top:4px">Women’s wellness, grounded in twenty years of clinical practice and classical Chinese medicine.</p></div>
+      <p style="max-width:34ch;color:#B8A998;font-size:13.5px;margin-top:4px">Women’s wellness, grounded in twenty years of clinical practice and classical Chinese medicine.</p></div>
     <div><a href="#">Shop</a><a href="#">The Method</a><a href="#">Journal</a></div>
     <div><a href="#">Ingredients</a><a href="#">Shipping &amp; returns</a><a href="#">Contact</a></div>
   </div></footer>
